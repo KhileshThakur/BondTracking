@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bond-tracking-service
+  labels:
+    app: bond-tracking-service
+spec:
+  selector:
+    matchLabels:
+      app: bond-tracking-service
+  template:
+    metadata:
+      labels:
+        app: bond-tracking-service
+    spec:
+      containers:
+      - name: bond-tracking-service
+        image: khileshthakur/bond-tracking:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9090
